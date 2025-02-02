@@ -1,0 +1,49 @@
+@use '@angular/material' as mat;
+
+
+// .mat-toolbar {
+//   background-color: #79ad56;
+// }
+
+.nav-spacer {
+  flex: 1 1 auto;
+}
+
+.nav-container {
+    width: auto;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .mat-toolbar {
+    background: inherit;
+    background-color: hwb(120 2% 78% / 0.527);
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .nav-sidenav {
+    padding: 15px;
+    width: 200px;
+    background-color: #dde9e2;
+  }
+  
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .theme-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    // @include mat.theme-overrides((
+    // primary:  red 
+  //))
+  }
