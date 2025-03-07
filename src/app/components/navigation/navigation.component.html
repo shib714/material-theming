@@ -1,19 +1,31 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button class="nav-icon" aria-label="nav icon-button with menu icon"
+<mat-toolbar >
+    <button mat-icon-button aria-label="nav icon-button with menu icon"
        (click)="drawer.toggle()" >
       <mat-icon>menu</mat-icon>
     </button>
     <span>Learning Angular Material with Theming</span>
-    <span class="nav-spacer"></span>
-  
+    <span class="nav-spacer"></span>  
     <button mat-icon-button class="nav-icon" aria-label="nav icon-button with share icon">
       <mat-icon>logout</mat-icon>
     </button>
-    <p class="theme-toggle">
+    <button mat-icon-button [mat-menu-trigger-for]="themeMenu">
+      <mat-icon>{{ themeService.selectedTheme()?.icon }}</mat-icon>
+    </button>
+    <mat-menu #themeMenu="matMenu">
+      @for(theme of themeService.getThemes(); track theme.name) {
+        <button 
+          [class.selected-theme]="themeService.selectedTheme()?.name === theme.name" 
+          mat-menu-item 
+          (click)="themeService.setTheme(theme.name)">
+          <mat-icon>{{ theme.icon }}</mat-icon>
+          <span>{{ theme.name |titlecase}} </span>
+        </button>      }
+    </mat-menu>
+    <!-- <p class="theme-toggle">
       <mat-icon>light_mode</mat-icon>
       <mat-slide-toggle (change)="onThemeChange($event)"></mat-slide-toggle>
       <mat-icon>dark_mode</mat-icon>
-    </p>
+    </p> -->
   </mat-toolbar>
   <mat-drawer-container class="nav-container" >
     <mat-drawer #drawer class="nav-sidenav" mode="side">  

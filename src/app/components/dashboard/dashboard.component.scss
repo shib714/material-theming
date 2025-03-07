@@ -1,23 +1,27 @@
-.grid-container {
-  width: 100%;
-  margin: 20px;
+.content {
+  padding: 32px;
+  min-height: 100vh;
+
+  background-color: var(--mat-sys-background);
+  color: var(--mat-sys-on-background);
 }
 
-.dashboard-card {
-  
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
-.dashboard-card-content {
-  text-align: center;
+mat-card {
+  max-width: 400px;
+}
+
+h3 {
+  font-weight: 400;
 }
